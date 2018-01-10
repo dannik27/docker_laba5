@@ -9,9 +9,9 @@ import java.util.Locale;
 abstract class NasaRow implements Serializable, Comparable<NasaRow> {
 
 
-    protected static DateTimeFormatter oldFormat = DateTimeFormatter.ofPattern("dd/MMM/yyyy:HH:mm:ss Z", Locale.UK);
-    protected static DateTimeFormatter newFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    protected static ZoneId moscow = ZoneId.of("Europe/Moscow");
+    static DateTimeFormatter oldFormat = DateTimeFormatter.ofPattern("dd/MMM/yyyy:HH:mm:ss Z", Locale.UK);
+    static DateTimeFormatter newFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    static ZoneId moscow = ZoneId.of("Europe/Moscow");
 
     protected String url;
     protected int code;
@@ -23,7 +23,7 @@ abstract class NasaRow implements Serializable, Comparable<NasaRow> {
 
     NasaRow(){
         url = "";
-        code = 1111;
+        code = 0;
         method = "";
         date = "";
     }
