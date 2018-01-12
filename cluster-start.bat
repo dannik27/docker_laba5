@@ -15,6 +15,7 @@ docker run -itd --net=hadoop ^
                   --hostname hadoop-slave0 ^
                   troofy/spark-yarn
 
+docker cp target/spark-nasa-1.0.jar hadoop-master:/root/app.jar
 docker cp init_master.sh hadoop-master:/root/init.sh
 
 docker exec -it hadoop-master bash

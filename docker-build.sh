@@ -1,1 +1,0 @@
-docker build -t troofy/spark-yarn .
