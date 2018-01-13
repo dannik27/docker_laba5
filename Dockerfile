@@ -27,7 +27,7 @@ ENV HADOOP_CONF_DIR=${HADOOP_HOME}/etc/hadoop
 
 ENV SPARK_HOME=/usr/local/spark
 
-ENV PATH=$PATH:/usr/local/hadoop/bin:/usr/local/hadoop/sbin:/usr/local/spark/bin:/usr/local/spark/sbin
+ENV PATH=$PATH:/usr/local/hadoop/bin:/usr/local/hadoop/sbin:/usr/local/spark/bin:/usr/local/spark/sbin:/root
 
 # ssh without key
 RUN ssh-keygen -t rsa -f ~/.ssh/id_rsa -P '' && \
@@ -46,18 +46,14 @@ RUN mv /tmp/ssh_config ~/.ssh/config && \
     cp /tmp/slaves $HADOOP_CONF_DIR/ && \
     mv /tmp/slaves $SPARK_HOME/conf/ && \
     mv /tmp/spark-defaults.conf $SPARK_HOME/conf/ && \
-    mv /tmp/spark-env.sh $SPARK_HOME/conf/ && \
-    mv /tmp/put-logs-to-hdfs.sh ~/put-logs-to-hdfs.sh
+    mv /tmp/spark-env.sh $SPARK_HOME/conf/
 
 RUN chmod +x $HADOOP_CONF_DIR/hadoop-env.sh && \
     chmod +x $SPARK_HOME/conf/spark-env.sh && \
     chmod +x $HADOOP_HOME/sbin/start-dfs.sh && \
-    chmod +x $HADOOP_HOME/sbin/start-yarn.sh && \
-    chmod +x ~/put-logs-to-hdfs.sh
+    chmod +x $HADOOP_HOME/sbin/start-yarn.sh
 
 # format namenode
 RUN hdfs namenode -format
-
-COPY target/spark-nasa-1.0.jar .
 
 CMD [ "/bin/bash", "-c", "service ssh start; tail -f /dev/null"]

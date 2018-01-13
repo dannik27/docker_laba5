@@ -27,7 +27,7 @@ public class Starter {
             throw new IllegalArgumentException("Invalid arguments");
         }
 
-        new Starter().start("hdfs://" + args[0] + ":9000", "hdfs://" + args[0] + ":9000" + args[1]);
+        new Starter().start("hdfs://" + args[0] + ":9000" + args[1], "hdfs://" + args[0] + ":9000" );
         //new Starter().start("access_log_Aug95", "result");
     }
 
@@ -36,7 +36,7 @@ public class Starter {
 
     public void start(String inputFile, String outputFolder){
 
-        SparkConf conf = new SparkConf().setMaster("local[*]").setAppName("kekes");
+        SparkConf conf = new SparkConf();
         JavaSparkContext context = new JavaSparkContext(conf);
         SparkSession spark = SparkSession
                 .builder()
