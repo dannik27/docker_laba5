@@ -1,0 +1,9 @@
+{"method":"GET","url":"/history/apollo/./","count":2}
+{"method":"POST","url":"/images/launchmedium.gif","count":6}
+{"method":"GET","url":"/images/./","count":1}
+{"method":"POST","url":"/shuttle/missions/sts-45/sts-45-patch-small.gif","count":2}
+{"method":"POST","url":"/ksc.html","count":11}
+{"method":"POST","url":"/shuttle/missions/sts-73/sts-73-patch-small.gif","count":2}
+{"method":"POST","url":"/shuttle/missions/sts-6/sts-6-patch-small.gif","count":2}
+{"method":"POST","url":"/shuttle/missions/51-i/51-i-patch-small.gif","count":2}
+{"method":"POST","url":"/images/getstats.gif","count":2}
